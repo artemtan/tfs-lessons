@@ -9,7 +9,12 @@ import {Purchase} from '../model/purchase';
 export class WalletComponent implements OnInit {
   purchases: Purchase[] = [];
   total = 0;
-  isAddPurchaseOpen = false;
+  isAddPurchaseOpen = true;
+  btnText;
+  btnStatus = {
+    OPEN: 'Отменить',
+    CLOSE: 'Добавить'
+  };
 
   private currentOpen: number;
 
@@ -32,6 +37,11 @@ export class WalletComponent implements OnInit {
 
   toggleAdd() {
     this.isAddPurchaseOpen = !this.isAddPurchaseOpen;
+    if (this.isAddPurchaseOpen) {
+      this.btnText = this.btnStatus.OPEN;
+    } else {
+      this.btnText = this.btnStatus.CLOSE;
+    }
   }
 
   onPreviewClick(index: number) {

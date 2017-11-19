@@ -5,6 +5,9 @@
            class="form-control"
            automation-id="title-control"
            placeholder="Название">
+    <div automation-id="title-error" class="invalid-feedback">
+      <li *ngFor="let errMsg of validatorMessages('title')">{{errMsg}}</li>
+    </div>
   </div>
   <div class="form-group">
     <input formControlName="price"
@@ -12,6 +15,23 @@
            class="form-control"
            automation-id="price-control"
            placeholder="Стоимость">
+    <div automation-id="price-error" class="invalid-feedback">
+      <li *ngFor="let errMsg of validatorMessages('price')">{{errMsg}}</li>
+    </div>
+  </div>
+  <div class="form-group">
+    <input formControlName="date"
+           type="text"
+           class="form-control"
+           automation-id="date-control"
+           placeholder="YYYY-MM-DD">
+  </div>
+  <div class="form-group">
+    <textarea formControlName="comment"
+           type="text"
+           class="form-control"
+           automation-id="comment-control"
+           placeholder="Комментарий"></textarea>
   </div>
   <div class="form-group">
     <button type="submit"
