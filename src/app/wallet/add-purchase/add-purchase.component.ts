@@ -9,7 +9,7 @@ import {Purchase} from '../../model/purchase';
 })
 export class AddPurchaseComponent implements OnInit {
   form: FormGroup;
-  @Output() addPurchase = new EventEmitter<Purchase>()
+  @Output() addPurchase = new EventEmitter<Purchase>();
 
   errMsgs = {
     title: {
@@ -42,7 +42,9 @@ export class AddPurchaseComponent implements OnInit {
     const msgs = this.errMsgs[field];
     const res = [];
     for (const key in errors) {
-      res.push(msgs[key]);
+      if (errors.hasOwnProperty(key)) {
+        res.push(msgs[key]);
+      }
     }
     return res;
   }
