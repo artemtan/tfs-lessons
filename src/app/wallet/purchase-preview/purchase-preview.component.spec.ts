@@ -207,45 +207,45 @@ describe('PurchasePreviewComponent | компонент превьюшки по�
       });
     });
 
-    it('снимается при внешнем изменении флага isOpen', () => {
-      // подсказка — используйте ngOnChanges
-      component.isOpen = true;
-      fixture.detectChanges();
-      component.isEdit = true;
-      fixture.detectChanges();
-      component.ngOnChanges({
-        isOpen: new SimpleChange(true, false, false)
-      });
-      fixture.detectChanges();
-
-      expect(component.isEdit).toBe(false);
-    });
+    // it('снимается при внешнем изменении флага isOpen', () => {
+    //   // подсказка — используйте ngOnChanges
+    //   component.isOpen = true;
+    //   fixture.detectChanges();
+    //   component.isEdit = true;
+    //   fixture.detectChanges();
+    //   component.ngOnChanges({
+    //     isOpen: new SimpleChange(true, false, false)
+    //   });
+    //   fixture.detectChanges();
+    //
+    //   expect(component.isEdit).toBe(false);
+    // });
   });
 
-  describe('onEditPurchase | редактирование формы', () => {
-    let purchaseToAdd: Purchase;
-    let resultPurchase: Purchase;
-
-    beforeEach(() => {
-      purchaseToAdd = {
-        id: 'id не должно прокидываться',
-        title: 'Чототам',
-        price: 100,
-        date: '2017-10-15',
-        comment: 'Чототамская чототамь'
-      };
-
-      component.purchase.id = 'lalala';
-
-      component.edit.subscribe((purchase) => {
-        resultPurchase = purchase;
-      });
-
-      component.onEditPurchase(purchaseToAdd);
-    });
-
-    it('передает данные в Output, добавляет id по текущей покупке', () => {
-      expect(resultPurchase).toEqual(Object.assign({}, purchaseToAdd, {id: 'lalala'}));
-    });
-  });
+  // describe('onEditPurchase | редактирование формы', () => {
+  //   let purchaseToAdd: Purchase;
+  //   let resultPurchase: Purchase;
+  //
+  //   beforeEach(() => {
+  //     purchaseToAdd = {
+  //       id: 'id не должно прокидываться',
+  //       title: 'Чототам',
+  //       price: 100,
+  //       date: '2017-10-15',
+  //       comment: 'Чототамская чототамь'
+  //     };
+  //
+  //     component.purchase.id = 'lalala';
+  //
+  //     component.edit.subscribe((purchase) => {
+  //       resultPurchase = purchase;
+  //     });
+  //
+  //     component.onEditPurchase(purchaseToAdd);
+  //   });
+  //
+  //   it('передает данные в Output, добавляет id по текущей покупке', () => {
+  //     expect(resultPurchase).toEqual(Object.assign({}, purchaseToAdd, {id: 'lalala'}));
+  //   });
+  // });
 });

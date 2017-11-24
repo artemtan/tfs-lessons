@@ -50,6 +50,14 @@ export class AddPurchaseComponent implements OnInit {
       date: [''],
       comment: ['']
     });
+    if (this.purchase) {
+      this.form.setValue({
+        title: this.purchase.title,
+        price: this.purchase.price,
+        date: this.purchase.date.slice(0, 10),
+        comment: this.purchase.comment
+      });
+    }
   }
 
   onSubmit() {
