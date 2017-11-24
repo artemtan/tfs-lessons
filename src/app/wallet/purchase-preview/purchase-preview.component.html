@@ -20,50 +20,48 @@
   <button class="btn btn-warning btn-block" automation-id="begin-edit-btn" (click)="onEditClick()">Редактировать</button>
 </div>
 <div class="preview-body" automation-id="edit-purchase-form" *ngIf="isOpen && isEdit">
-  <!--<form [formGroup]="editForm" (submit)="onSubmit()">-->
-    <!--<div class="form-group">-->
-      <!--<input formControlName="title"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--automation-id="title-control"-->
-             <!--placeholder="Название"-->
-             <!--value="{{purchase.title}}">-->
-      <!--<div class="invalid-feedback" automation-id="title-error">-->
-        <!--{{editForm.get('title').errors && getErrors(editForm.get('title').errors)}}-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<input formControlName="price"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--automation-id="price-control"-->
-             <!--placeholder="Стоимость"-->
-             <!--value="{{purchase.price}}">-->
-      <!--<div class="invalid-feedback" automation-id="price-error">-->
-        <!--{{editForm.get('price').errors && getErrors(editForm.get('price').errors)}}-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<input formControlName="date"-->
-             <!--type="date"-->
-             <!--class="form-control"-->
-             <!--automation-id="date-control"-->
-             <!--placeholder="Дата"-->
-             <!--value="{{purchase.date}}">-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-    <!--<textarea formControlName="comment"-->
-              <!--class="form-control"-->
-              <!--automation-id="comment-control"-->
-              <!--value="{{purchase.comment}}"></textarea>-->
-    <!--</div>-->
-    <!--<div class="form-group">-->
-      <!--<button type="submit"-->
-              <!--[disabled]="editForm.invalid"-->
-              <!--automation-id="submit"-->
-              <!--class="btn btn-success btn-block">Готово-->
-      <!--</button>-->
-    <!--</div>-->
-  <!--</form>-->
+  <form [formGroup]="editForm" (submit)="onEditPurchase()">
+    <div class="form-group">
+      <input formControlName="title"
+             type="text"
+             class="form-control"
+             automation-id="title-control"
+             placeholder="Название"value="{{purchase.title}}">
+      <div class="invalid-feedback" automation-id="title-error">
+        {{editForm.get('title').errors && getErrors(editForm.get('title').errors)}}
+      </div>
+    </div>
+    <div class="form-group">
+      <input formControlName="price"
+             type="text"
+             class="form-control"
+             automation-id="price-control"
+             placeholder="Стоимость"value="{{purchase.price}}">
+      <div class="invalid-feedback" automation-id="price-error">
+        {{editForm.get('price').errors && getErrors(editForm.get('price').errors)}}
+      </div>
+    </div>
+    <div class="form-group">
+      <input formControlName="date"
+             type="date"
+             class="form-control"
+             automation-id="date-control"
+             placeholder="Дата"
+             value="{{purchase.date}}">
+    </div>
+    <div class="form-group">
+    <textarea formControlName="comment"
+              class="form-control"
+              automation-id="comment-control"
+              value="{{purchase.comment}}"></textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit"
+              [disabled]="editForm.invalid"
+              automation-id="submit"
+              class="btn btn-success btn-block">Готово
+      </button>
+    </div>
+  </form>
   <button class="btn btn-danger btn-block" automation-id="cancel-edit-btn" (click)="onEditClick()">Отмена</button>
 </div>

@@ -49,3 +49,7 @@
 .delete-btn:active {
   opacity: .7;
 }
+
+.invalid-feedback {
+  display: block;
+}
